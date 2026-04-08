@@ -1,0 +1,45 @@
+﻿@model IEnumerable<GreenYellowSite.Models.Service>
+
+    @{
+    ViewData["Title"] = "Pakalpojumi";
+    }
+
+<section class="bg-slate-950 py-16 text-white">
+    <div class="mx-auto max-w-7xl px-6">
+        <h1 class="text-4xl font-bold">Pakalpojumi</h1>
+        <p class="mt-4 max-w-3xl text-lg text-slate-300">
+            Piedāvājam dažādus drošības, automatizācijas un infrastruktūras risinājumus mājām un uzņēmumiem.
+        </p>
+    </div>
+</section>
+
+<section class="bg-white py-20">
+    <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        @foreach (var service in Model)
+        {
+            <a asp-controller="Site"
+               asp-action="ServiceDetail"
+               asp-route-slug="@service.Slug"
+               class="group flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:border-lime-300 hover:shadow-2xl">
+
+                <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-lime-50 text-3xl shadow-sm transition group-hover:scale-110">
+                    @service.Icon
+                </div>
+
+                <h2 class="mt-6 text-xl font-bold text-slate-900 transition group-hover:text-lime-600">
+                    @service.Title
+                </h2>
+
+                <p class="mt-4 flex-grow leading-7 text-slate-600">
+                    @service.ShortDescription
+                </p>
+
+                <div class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-lime-600">
+                    <span>Uzzināt vairāk</span>
+                    <span class="transition group-hover:translate-x-1">→</span>
+                </div>
+            </a>
+        }
+    </div>
+   
+</section>

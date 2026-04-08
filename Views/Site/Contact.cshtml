@@ -1,0 +1,74 @@
+﻿@model GreenYellowSite.Models.ContactFormModel
+
+@{
+    ViewData["Title"] = "Kontakti";
+}
+
+<section class="bg-slate-950 py-16 text-white">
+    <div class="mx-auto max-w-5xl px-6">
+        <h1 class="text-4xl font-bold">Kontakti</h1>
+        <p class="mt-4 text-lg text-slate-300">
+            Sazinieties ar mums, lai saņemtu konsultāciju vai piedāvājumu.
+        </p>
+    </div>
+</section>
+
+<section class="bg-white py-20">
+    <div class="mx-auto grid max-w-5xl gap-10 px-6 md:grid-cols-2">
+        <div>
+            <h2 class="text-2xl font-bold text-slate-900">Kontaktinformācija</h2>
+            <div class="mt-6 space-y-3 text-slate-600">
+                <p><strong>Tālrunis:</strong> +371 20292787</p>
+                <p><strong>E-pasts:</strong> info@prook.lv</p>
+                <p><strong>WhatsApp:</strong> Pieejams pēc pieprasījuma</p>
+            </div>
+        </div>
+
+        <form asp-action="Contact" asp-controller="Site" method="post"
+              class="rounded-2xl border border-slate-200 bg-slate-50 p-8 shadow-sm">
+            @Html.AntiForgeryToken()
+
+            @if (TempData["SuccessMessage"] is string successMessage)
+            {
+                <div class="mb-4 rounded-lg bg-green-100 px-4 py-3 text-green-800">
+                    @successMessage
+                </div>
+            }
+
+            <div asp-validation-summary="ModelOnly" class="mb-4 text-sm text-red-600"></div>
+
+            <div>
+                <label asp-for="Name" class="mb-2 block text-sm font-medium text-slate-700"></label>
+                <input asp-for="Name" class="w-full rounded-lg border border-slate-300 px-4 py-3 outline-none focus:border-lime-500" />
+                <span asp-validation-for="Name" class="mt-1 block text-sm text-red-600"></span>
+            </div>
+
+            <div class="mt-4">
+                <label asp-for="Email" class="mb-2 block text-sm font-medium text-slate-700"></label>
+                <input asp-for="Email" class="w-full rounded-lg border border-slate-300 px-4 py-3 outline-none focus:border-lime-500" />
+                <span asp-validation-for="Email" class="mt-1 block text-sm text-red-600"></span>
+            </div>
+
+            <div class="mt-4">
+                <label asp-for="Phone" class="mb-2 block text-sm font-medium text-slate-700"></label>
+                <input asp-for="Phone" class="w-full rounded-lg border border-slate-300 px-4 py-3 outline-none focus:border-lime-500" />
+                <span asp-validation-for="Phone" class="mt-1 block text-sm text-red-600"></span>
+            </div>
+
+            <div class="mt-4">
+                <label asp-for="Message" class="mb-2 block text-sm font-medium text-slate-700"></label>
+                <textarea asp-for="Message" rows="5" class="w-full rounded-lg border border-slate-300 px-4 py-3 outline-none focus:border-lime-500"></textarea>
+                <span asp-validation-for="Message" class="mt-1 block text-sm text-red-600"></span>
+            </div>
+
+            <button type="submit"
+                    class="mt-6 rounded-lg bg-lime-500 px-6 py-3 font-semibold text-white transition hover:bg-lime-600">
+                Nosūtīt
+            </button>
+        </form>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
