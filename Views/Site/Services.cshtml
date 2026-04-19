@@ -2,19 +2,30 @@
 
     @{
     ViewData["Title"] = "Pakalpojumi";
+    ViewData["MetaDescription"] = "Apskatiet PROOK pakalpojumus – videonovērošana, apsardzes sistēmas, piekļuves kontrole, elektrības darbi, saules paneļi un citi risinājumi.";
     }
 
 <section class="bg-slate-950 py-16 text-white">
     <div class="mx-auto max-w-7xl px-6">
         <h1 class="text-4xl font-bold">Pakalpojumi</h1>
         <p class="mt-4 max-w-3xl text-lg text-slate-300">
-            Piedāvājam dažādus drošības, automatizācijas un infrastruktūras risinājumus mājām un uzņēmumiem.
+            Piedāvājam dažādus drošības, automatizācijas un infarastruktūras risinājumus mājām un uzņēmumiem.
         </p>
     </div>
 </section>
 
 <section class="bg-white py-20">
-    <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+    <div class="mx-auto max-w-7xl px-6">
+
+        <h2 class="text-3xl font-bold text-slate-900">
+            Mūsu piedāvātie pakalpojumi
+        </h2>
+
+        <p class="mt-4 max-w-2xl text-lg text-slate-600">
+            Izvēlieties piemērotāko risinājumu savam īpašumam vai uzņēmumam.
+        </p>
+
+        <div class="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3"/>
         @foreach (var service in Model)
         {
             <a asp-controller="Site"

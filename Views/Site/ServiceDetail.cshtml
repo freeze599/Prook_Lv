@@ -1,14 +1,166 @@
 ﻿@model GreenYellowSite.Models.Service
 
 @{
-    ViewData["Title"] = Model.Title;
-}
+    ViewData["Title"] = $"{Model.Title} | Uzstādīšana un risinājumi jūsu mājai";
+    ViewData["MetaDescription"] = !string.IsNullOrWhiteSpace(Model.ShortDescription)
+    ? Model.ShortDescription
+    : Model.Description;
 
+    var serviceContent = new Dictionary<string, (string kamParedzets, string koIetver, List<string> ieguvumi)>
+    {
+        {
+            "Videonovērošanas sistēmas",
+            (
+                "Videonovērošana ir piemērota privātmājām, uzņēmumiem un teritorijām, kur nepieciešama nepārtraukta kontrole un iespēja attālināti sekot līdzi notiekošajam.",
+                "Veicam kameru un ieraksta iekārtu uzstādīšanu. Konfigurējam attālinātu piekļuvi telefonā vai datorā un nodrošinām sistēmas pilnvērtīgu darbību.",
+                new List<string>
+                {
+                    "Drošība 24/7",
+                    "Attālināta piekļuve no jebkuras vietas",
+                    "Notikumu ieraksts un pārskatāmība"
+                }
+            )
+        },
+        {
+            "Apsardzes sistēmu risinājumi",
+            (
+                "Piemērots īpašumiem, kur svarīga aizsardzība pret ielaušanos un ātra reaģēšana uz apdraudējumiem.",
+                "Uzstādām signalizācijas sistēmas, kustību sensorus, vadības paneļus. Konfigurējam sistēmu atbilstoši objekta vajadzībām.",
+                new List<string>
+                {
+                    "Ātra reakcija uz apdraudējumu",
+                    "Papildu drošības līmenis īpašumam",
+                    "Iespēja pieslēgt apsardzes uzņēmumam"
+                }
+            )
+        },
+        {
+            "Piekļuves sistēmas",
+            (
+                "Ideāli birojiem, uzņēmumiem un teritorijām, kur nepieciešama kontrolēta piekļuve telpām vai zonām.",
+                "Uzstādām karšu, kodu vai biometriskās piekļuves sistēmas, konfigurējam lietotājus un piekļuves tiesības.",
+                new List<string>
+                {
+                    "Kontrole pār piekļuvi",
+                    "Drošāka vide",
+                    "Pārskatāma piekļuves vēsture"
+                }
+            )
+        },
+        {
+            "Datu tīklu izbūve",
+            (
+                "Uzņēmumiem un privātpersonām, kam nepieciešama stabila un droša tīkla infrastruktūra.",
+                "Projektējam un izbūvējam strukturētos tīklus, veicam kabeļu ievilkšanu, tīkla konfigurēšanu un testēšanu.",
+                new List<string>
+                {
+                    "Stabils interneta savienojums",
+                    "Droša datu pārraide",
+                    "Gatavība nākotnes paplašināšanai"
+                }
+            )
+        },
+        {
+            "Elektrības darbi",
+            (
+                "Privātmājām, dzīvokļiem un uzņēmumiem, kur nepieciešami kvalitatīvi elektroinstalācijas darbi.",
+                "Veicam elektroinstalācijas izbūvi, remontu un modernizāciju, kā arī pieslēgumu izveidi un pārbaudi.",
+                new List<string>
+                {
+                    "Droša elektroapgāde",
+                    "Atbilstība normatīviem",
+                    "Ilgtermiņa uzticamība"
+                }
+            )
+        },
+        {
+            "Saules paneļi",
+            (
+                "Privātmājām un uzņēmumiem, kas vēlas samazināt elektroenerģijas izmaksas un kļūt energoefektīvāki.",
+                "Uzstādām saules paneļus, invertorus, konfigurējam sistēmu un nodrošinām tās pieslēgšanu.",
+                new List<string>
+                {
+                    "Mazāki elektrības rēķini",
+                    "Ilgtspējīgs risinājums",
+                    "Ieguldījums nākotnē"
+                }
+            )
+        },
+        {
+            "Ugunsdrošības sistēmas",
+            (
+                "Ēkām un telpām, kur nepieciešama agrīna ugunsgrēka atklāšana un drošības nodrošināšana.",
+                "Uzstādām dūmu detektorus, trauksmes sistēmas un konfigurējam brīdinājuma mehānismus.",
+                new List<string>
+                {
+                    "Agrīna apdraudējuma noteikšana",
+                    "Cilvēku un īpašuma aizsardzība",
+                    "Atbilstība drošības prasībām"
+                }
+            )
+        },
+        {
+            "Vārtu automātika",
+            (
+                "Privātmājām un uzņēmumiem, kuri vēlas ērtu un drošu piekļuvi teritorijai.",
+                "Uzstādām vārtu automātikas sistēmas, pultis, sensorus un konfigurējam darbību.",
+                new List<string>
+                {
+                    "Ērta vārtu vadība",
+                    "Papildu drošība",
+                    "Ilgmūžīgs risinājums"
+                }
+            )
+        },
+        {
+            "Gudrās mājas sistēmas",
+            (
+                "Mājokļiem, kur vēlas automatizēt ikdienas procesus un uzlabot komfortu.",
+                "Integrējam apgaismojumu, apkuri, drošību un citas sistēmas vienotā vadībā.",
+                new List<string>
+                {
+                    "Komforts un automatizācija",
+                    "Energoefektivitāte",
+                    "Vadība no telefona"
+                }
+            )
+        },
+        {
+            "Velēnas griezēja noma",
+            (
+                "Privātpersonām un uzņēmumiem zāliena ierīkošanai vai atjaunošanai.",
+                "Piedāvājam kvalitatīvu tehniku velēnas noņemšanai un konsultējam par pareizu lietošanu.",
+                new List<string>
+                {
+                    "Ātrāks darba process",
+                    "Precīzs rezultāts",
+                    "Ērta lietošana"
+                }
+            )
+        }
+    };
+
+    var defaultContent = (
+        kamParedzets: "Šis pakalpojums ir piemērots klientiem, kuri vēlas drošu, kvalitatīvu un pārdomātu risinājumu savam īpašumam vai uzņēmumam.",
+        koIetver: "Nodrošinām konsultāciju, piemērotākā risinājuma izvēli, uzstādīšanu un konfigurēšanu atbilstoši konkrētajām vajadzībām.",
+        ieguvumi: new List<string>
+        {
+            "Pielāgots risinājums",
+            "Profesionāla uzstādīšana",
+            "Drošība un ērtība ikdienā"
+        }
+    );
+
+    var content = serviceContent.ContainsKey(Model.Title)
+        ? serviceContent[Model.Title]
+        : defaultContent;
+}
 <section class="bg-slate-950 py-16 text-white">
     <div class="mx-auto max-w-5xl px-6">
         <div class="text-5xl">@Model.Icon</div>
         <h1 class="mt-4 text-4xl font-bold">@Model.Title</h1>
         <p class="mt-4 text-lg text-slate-300">@Model.ShortDescription</p>
+
     </div>
 </section>
 
@@ -18,6 +170,32 @@
             <p class="text-lg leading-8 text-slate-700">
                 @Model.Description
             </p>
+
+            <div class="mt-12 grid gap-8 md:grid-cols-2">
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-900">Kam tas ir paredzēts?</h2>
+                    <p class="mt-4 leading-7 text-slate-600">
+                        @content.kamParedzets
+                    </p>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-900">Ko ietver pakalpojums?</h2>
+                    <p class="mt-4 leading-7 text-slate-600">
+                        @content.koIetver
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-12">
+                <h2 class="text-2xl font-bold text-slate-900">Galvenie ieguvumi</h2>
+                <ul class="mt-4 space-y-3 text-slate-600">
+                    @foreach (var item in content.ieguvumi)
+                    {
+                        <li>• @item</li>
+                    }
+                </ul>
+            </div>
 
             <div class="mt-10">
                 <a asp-controller="Site" asp-action="Contact"

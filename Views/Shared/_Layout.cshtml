@@ -4,6 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - PROOK</title>
+    <meta name="description" content="@(ViewData["MetaDescription"] ?? "PROOK nodrošina drošības sistēmas, videonovērošanu, elektrības darbus, piekļuves kontroli un citus viedos risinājumus mājām un uzņēmumiem.")" />
+    <link rel="canonical" href="@($"{Context.Request.Scheme}://{Context.Request.Host}{Context.Request.Path}")" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 
@@ -16,8 +18,7 @@
             <div class="flex items-center justify-between py-3">
 
                 <a asp-controller="Home" asp-action="Index" class="flex items-center shrink-0">
-                    <img src="~/images/logo_1.png"
-                         alt="PROOK"
+                    <img src="~/images/logo_1.webp" alt="PROOK logo" width="3430" height="1168"
                          style="height:60px; width:auto;" />
                 </a>
 
