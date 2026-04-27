@@ -11,65 +11,76 @@
         <img src="/images/fons1.jpg" alt="Hero background" width="1600" height="1067"
              class="h-full w-full object-cover">
     </div>
-
+    <div class="rounded-[2rem] border border-white/15 bg-slate-950/35 p-8 backdrop-blur-xl shadow-2xl md:p-10">
     <div class="absolute inset-0 bg-slate-900/75"></div>
 
     <div class="relative mx-auto grid max-w-7xl gap-12 px-6 py-28 md:grid-cols-2 md:items-center">
 
         <div>
-            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-lime-400">
-                Gudras sistēmas ikvienam
-            </p>
-
             <h1 class="mt-4 text-5xl font-bold leading-tight md:text-6xl">
-                Gudri drošības un automatizācijas risinājumi jūsu īpašumam
+                Gudras drošības sistēmas jūsu īpašumam
             </h1>
 
             <p class="mt-6 max-w-xl text-lg leading-8 text-slate-300">
-                Mēs piedāvājam videonovērošanas, apsardzes un automatizācijas sistēmas privātmājām un uzņēmumiem. 
-                Mūsu risinājumi palīdz uzlabot drošību, ērtību un kontroli pār jūsu vidi.
+                Laistīšana sistēmu uzstādīšana.
+                Videonovērošana, piekļuves kontrole, gudrās mājas un datu tīklu risinājumi privātmājām un uzņēmumiem.
             </p>
 
             <div class="mt-8 flex flex-wrap gap-4">
                 <a asp-controller="Site" asp-action="Contact"
-                   class="rounded-lg bg-lime-500 px-6 py-3 font-semibold transition hover:bg-lime-600">
+                       class="rounded-lg bg-lime-500 px-6 py-3 font-semibold transition hover:bg-lime-600">
                     Sazinies ar mums
                 </a>
 
                 <a asp-controller="Site" asp-action="Services"
-                   class="rounded-lg border border-white/30 px-6 py-3 font-semibold transition hover:bg-white/10">
+                       class="rounded-lg border border-white/30 px-6 py-3 font-semibold transition hover:bg-white/10">
                     Skatīt pakalpojumus
                 </a>
             </div>
         </div>
-
-        <div class="rounded-3xl border border-white/10 bg-white/10 p-8 backdrop-blur">
-            <div class="grid gap-4 sm:grid-cols-2">
-
-                <div class="rounded-xl bg-white/10 p-5">
-                    <p class="text-sm text-slate-300">Videonovērošana</p>
-                    <p class="mt-2 text-xl font-bold">Drošība un kontrole pār teritoriju 24/7.</p>
+        
+        <div class="mt-8 grid gap-4 text-slate-100">
+            <div class="flex items-start gap-4">
+                <div class="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-lime-400/20 text-lime-300 ring-1 ring-lime-300/30">
+                    ✓
                 </div>
-
-                <div class="rounded-xl bg-white/10 p-5">
-                    <p class="text-sm text-slate-300">Piekļuves sistēmas</p>
-                    <p class="mt-2 text-xl font-bold">Pārvaldiet piekļuvi telpām un teritorijai vienkārši un droši.</p>
+                <div>
+                    <p class="font-semibold text-white">Zālāju laistīšanas sistēmas</p>
+                    <p class="mt-1 text-sm text-slate-300">Automātiska un efektīva teritorijas laistīšana.</p>
                 </div>
+            </div>
 
-                <div class="rounded-xl bg-white/10 p-5">
-                    <p class="text-sm text-slate-300">Gudrās mājas</p>
-                    <p class="mt-2 text-xl font-bold">Automatizēti risinājumi komfortam un energoefektivitātei.</p>
+            <div class="flex items-start gap-4">
+                <div class="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-lime-400/20 text-lime-300 ring-1 ring-lime-300/30">
+                    ✓
                 </div>
-
-                <div class="rounded-xl bg-white/10 p-5">
-                    <p class="text-sm text-slate-300">Datu tīkli</p>
-                    <p class="mt-2 text-xl font-bold">Stabila un droša infrastruktūra jūsu tehnoloģijām.</p>
+                <div>
+                    <p class="font-semibold text-white">Drošība un kontrole</p>
+                    <p class="mt-1 text-sm text-slate-300">Videonovērošana, signalizācija un piekļuves kontrole.</p>
                 </div>
+            </div>
 
+            <div class="flex items-start gap-4">
+                <div class="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-lime-400/20 text-lime-300 ring-1 ring-lime-300/30">
+                    ✓
+                </div>
+                <div>
+                    <p class="font-semibold text-white">Automatizācija un ērtība</p>
+                    <p class="mt-1 text-sm text-slate-300">Gudrās mājas risinājumi ikdienas komfortam.</p>
+                </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+                <div class="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-lime-400/20 text-lime-300 ring-1 ring-lime-300/30">
+                    ✓
+                </div>
+                <div>
+                    <p class="font-semibold text-white">Stabils tīkls un infrastruktūra</p>
+                    <p class="mt-1 text-sm text-slate-300">Datu tīkli, Wi-Fi un tehnoloģiju pamats jūsu īpašumam.</p>
+                </div>
             </div>
         </div>
-
-    </div>
+</div>
 
 </section>
 <section class="bg-white py-20">
@@ -85,9 +96,9 @@
             @foreach (var service in services)
             {
                 <a asp-controller="Site"
-                   asp-action="ServiceDetail"
-                   asp-route-slug="@service.Slug"
-                   class="group flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:border-lime-300 hover:shadow-2xl">
+                       asp-action="ServiceDetail"
+                       asp-route-slug="@service.Slug"
+                       class="group flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:border-lime-300 hover:shadow-2xl">
 
                     <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-lime-50 text-3xl shadow-sm transition group-hover:scale-110">
                         @service.Icon
@@ -108,7 +119,7 @@
                 </a>
             }
         </div>
-        </div>
+    </div>
 </section>
 
 <section class="bg-slate-50 py-20">
@@ -119,7 +130,7 @@
                 Uzticami tehnoloģiju risinājumi jūsu videi
             </h2>
             <p class="mt-6 text-lg leading-8 text-slate-600">
-               Mūsu mērķis ir palīdzēt klientiem ieviest modernus drošības un automatizācijas risinājumus. Kuri uzlabos ikdienas komfortu un drošību.
+                Mūsu mērķis ir palīdzēt klientiem ieviest modernus drošības un automatizācijas risinājumus. Kuri uzlabos ikdienas komfortu un drošību.
             </p>
             <p class="mt-4 leading-7 text-slate-600">
                 Mēs strādājam ar individuālu pieeju katram klientam. Izvērtējot konkrētā objekta vajadzības un piedāvājot optimālo tehnisko risinājumu.
@@ -273,7 +284,7 @@
 
                 <div>
                     <a asp-controller="Site" asp-action="Contact"
-                       class="inline-block rounded-lg bg-white px-6 py-3 font-semibold text-lime-700 transition hover:bg-slate-100">
+                           class="inline-block rounded-lg bg-white px-6 py-3 font-semibold text-lime-700 transition hover:bg-slate-100">
                         Pieteikties konsultācijai
                     </a>
                 </div>
