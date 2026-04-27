@@ -21,20 +21,20 @@ public class SmtpEmailService : IEmailService
 
         message.From.Add(new MailboxAddress(_settings.FromName, _settings.FromEmail));
         message.To.Add(MailboxAddress.Parse(_settings.ToEmail));
-        message.ReplyTo.Add(MailboxAddress.Parse(model.Email));
+        message.ReplyTo.Add(MailboxAddress.Parse(model.Epasts));
 
-        message.Subject = $"Jauns konsultācijas pieteikums no {model.Name}";
+        message.Subject = $"Jauns konsultācijas pieteikums no {model.Vārds}";
 
         message.Body = new TextPart("plain")
         {
             Text =
 $@"Jauns pieteikums no mājaslapas
 
-Vārds: {model.Name}
-E-pasts: {model.Email}
-Tālrunis: {model.Phone}
+Vārds: {model.Vārds}
+E-pasts: {model.Epasts}
+Tālrunis: {model.Tālrunis}
 Ziņa:
-{model.Message}"
+{model.Ziņa}"
         };
 
         using var client = new SmtpClient();
