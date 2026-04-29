@@ -9,79 +9,81 @@
 
     <div class="absolute inset-0">
         <img src="/images/fons1.jpg" alt="Hero background" width="1600" height="1067"
-             class="h-full w-full object-cover">
+             class="h-full w-full object-cover object-right">
     </div>
-    <div class="rounded-[2rem] border border-white/15 bg-slate-950/35 p-8 backdrop-blur-xl shadow-2xl md:p-10">
-    <div class="absolute inset-0 bg-slate-900/75"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-950/55 to-slate-950/35"></div>
 
-    <div class="relative mx-auto grid max-w-7xl gap-12 px-6 py-28 md:grid-cols-2 md:items-center">
+    <div class="rounded-[2rem] border border-white/15 bg-slate-950/50 p-8 shadow-2xl md:p-10">
 
-        <div>
-            <h1 class="mt-4 text-5xl font-bold leading-tight md:text-6xl">
-                Gudras drošības sistēmas jūsu īpašumam
-            </h1>
+        <div class="relative mx-auto grid max-w-7xl gap-12 px-6 py-28 md:grid-cols-2 md:items-center">
 
-            <p class="mt-6 max-w-xl text-lg leading-8 text-slate-300">
-                Laistīšana sistēmu uzstādīšana.
-                Videonovērošana, piekļuves kontrole, gudrās mājas un datu tīklu risinājumi privātmājām un uzņēmumiem.
-            </p>
+            <!-- Kreisā puse -->
+            <div>
+                <h1 class="mt-4 text-5xl font-bold leading-tight md:text-6xl">
+                    Gudras drošības sistēmas jūsu īpašumam
+                </h1>
 
-            <div class="mt-8 flex flex-wrap gap-4">
-                <a asp-controller="Site" asp-action="Contact"
-                       class="rounded-lg bg-lime-500 px-6 py-3 font-semibold transition hover:bg-lime-600">
-                    Sazinies ar mums
-                </a>
+                <p class="mt-6 max-w-xl text-lg leading-8 text-slate-300">
+                    Laistīšanas sistēmu uzstādīšana. Videonovērošana, piekļuves kontrole,
+                    gudrās mājas un datu tīklu risinājumi privātmājām un uzņēmumiem.
+                </p>
 
-                <a asp-controller="Site" asp-action="Services"
-                       class="rounded-lg border border-white/30 px-6 py-3 font-semibold transition hover:bg-white/10">
-                    Skatīt pakalpojumus
-                </a>
+                <div class="mt-8 flex flex-wrap gap-4">
+                    <a asp-controller="Site" asp-action="Services"
+                           class="rounded-lg border border-white/30 px-6 py-3 font-semibold transition hover:bg-white/10">
+                        Skatīt pakalpojumus
+                    </a>
+                </div>
             </div>
+
+            <!-- Labā puse -->
+            <div class="rounded-[2rem] border border-white/15 bg-slate-950/45 p-8 shadow-2xl md:p-10">
+                <div class="grid gap-5">
+
+                    <div class="flex items-start gap-4">
+                        <div class="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-lime-400 text-slate-950 font-bold shadow-lg">
+                            ✓
+                        </div>
+                        <div>
+                            <p class="font-semibold text-white text-lg">Zālāju laistīšanas sistēmas</p>
+                            <p class="mt-1 text-sm text-slate-200">Automātiska un efektīva teritorijas laistīšana.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-lime-400 text-slate-950 font-bold shadow-lg">
+                            ✓
+                        </div>
+                        <div>
+                            <p class="font-semibold text-white text-lg">Drošība un kontrole</p>
+                            <p class="mt-1 text-sm text-slate-200">Videonovērošana, signalizācija un piekļuves kontrole.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-lime-400 text-slate-950 font-bold shadow-lg">
+                            ✓
+                        </div>
+                        <div>
+                            <p class="font-semibold text-white text-lg">Automatizācija un ērtība</p>
+                            <p class="mt-1 text-sm text-slate-200">Gudrās mājas risinājumi ikdienas komfortam.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-lime-400 text-slate-950 font-bold shadow-lg">
+                            ✓
+                        </div>
+                        <div>
+                            <p class="font-semibold text-white text-lg">Stabils tīkls un infrastruktūra</p>
+                            <p class="mt-1 text-sm text-slate-200">Datu tīkli, Wi-Fi un tehnoloģiju pamats jūsu īpašumam.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
-        
-        <div class="mt-8 grid gap-4 text-slate-100">
-            <div class="flex items-start gap-4">
-                <div class="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-lime-400/20 text-lime-300 ring-1 ring-lime-300/30">
-                    ✓
-                </div>
-                <div>
-                    <p class="font-semibold text-white">Zālāju laistīšanas sistēmas</p>
-                    <p class="mt-1 text-sm text-slate-300">Automātiska un efektīva teritorijas laistīšana.</p>
-                </div>
-            </div>
-
-            <div class="flex items-start gap-4">
-                <div class="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-lime-400/20 text-lime-300 ring-1 ring-lime-300/30">
-                    ✓
-                </div>
-                <div>
-                    <p class="font-semibold text-white">Drošība un kontrole</p>
-                    <p class="mt-1 text-sm text-slate-300">Videonovērošana, signalizācija un piekļuves kontrole.</p>
-                </div>
-            </div>
-
-            <div class="flex items-start gap-4">
-                <div class="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-lime-400/20 text-lime-300 ring-1 ring-lime-300/30">
-                    ✓
-                </div>
-                <div>
-                    <p class="font-semibold text-white">Automatizācija un ērtība</p>
-                    <p class="mt-1 text-sm text-slate-300">Gudrās mājas risinājumi ikdienas komfortam.</p>
-                </div>
-            </div>
-
-            <div class="flex items-start gap-4">
-                <div class="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-lime-400/20 text-lime-300 ring-1 ring-lime-300/30">
-                    ✓
-                </div>
-                <div>
-                    <p class="font-semibold text-white">Stabils tīkls un infrastruktūra</p>
-                    <p class="mt-1 text-sm text-slate-300">Datu tīkli, Wi-Fi un tehnoloģiju pamats jūsu īpašumam.</p>
-                </div>
-            </div>
-        </div>
-</div>
-
 </section>
 <section class="bg-white py-20">
     <div class="mx-auto max-w-7xl px-6">

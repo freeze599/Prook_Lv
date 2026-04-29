@@ -25,58 +25,49 @@
             <div class="flex items-center justify-between py-3">
 
                 <a asp-controller="Home" asp-action="Index" class="flex items-center shrink-0">
-                    <img src="~/images/logo_1.webp" alt="PROOK logo" width="3430" height="1168"
+                    <img src="~/images/logo_2.png" alt="PROOK logo" width="3430" height="1168"
                          style="height:60px; width:auto;" />
-                </a>
+                </a>  
 
-                <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-700">
-                    <a asp-controller="Home" asp-action="Index" class="hover:text-lime-600">Sākums</a>
-                    <a asp-controller="Site" asp-action="Services" class="hover:text-lime-600">Pakalpojumi</a>
-                    <a asp-controller="Site" asp-action="Contact" class="hover:text-lime-600">Kontakti</a>
+                <!-- Navigācija -->
+                <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-700">
+                    <a asp-controller="Home" asp-action="Index"
+                           class="relative hover:text-black transition">
+                        Sākums
+                    </a>
+
+                    <a asp-controller="Site" asp-action="Services"
+                           class="relative hover:text-black transition">
+                        Pakalpojumi
+                    </a>
+
+                    <a asp-controller="Site" asp-action="Contact"
+                           class="relative hover:text-black transition">
+                        Kontakti
+                    </a>
                 </nav>
 
-                <div class="hidden md:flex items-center gap-4">
-                    <a href="tel:+371 20292787"
-                       class="text-sm text-slate-600 hover:text-lime-600">
+                <!-- Labā puse -->
+                <div class="flex items-center gap-4">
+
+                    <!-- Telefons -->
+                    <a href="tel:+37120292787"
+                           class="hidden md:block text-sm font-semibold text-slate-700 hover:text-black transition">
                         +371 20292787
                     </a>
 
-                    @* <a asp-controller="Site" asp-action="Contact"
-                       class="rounded-lg bg-lime-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-lime-600">
-                        Kontakti
-                    </a> *@
+                    <!-- CTA -->
+                    <a asp-controller="Site" asp-action="Contact"
+                           class="rounded-lg bg-lime-500 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-lime-600 transition">
+                        Sazināties
+                    </a>
+
                 </div>
 
-                <button id="menuBtn"
-                        class="md:hidden flex items-center justify-center rounded-lg border border-slate-200 p-2">
-                    ☰
-                </button>
-
             </div>
-
         </div>
-
-        <div id="mobileMenu"
-             class="hidden border-t border-slate-200 bg-white md:hidden">
-
-            <div class="flex flex-col gap-4 px-6 py-6 text-sm font-medium">
-
-                <a asp-controller="Home" asp-action="Index">Sākums</a>
-
-                <a asp-controller="Site" asp-action="Services">Pakalpojumi</a>
-
-                <a asp-controller="Site" asp-action="Contact">Kontakti</a>
-
-                <a href="tel:+371 20292787"
-                   class="text-slate-600">
-                    +371 20292787
-                </a>
-
-            </div>
-
-        </div>
-
     </header>
+   
 
     <main>
         @RenderBody()
