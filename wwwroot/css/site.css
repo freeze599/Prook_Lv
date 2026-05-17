@@ -620,6 +620,10 @@ video {
   inset: 0px;
 }
 
+.-inset-4 {
+  inset: -1rem;
+}
+
 .bottom-6 {
   bottom: 1.5rem;
 }
@@ -630,6 +634,14 @@ video {
 
 .top-0 {
   top: 0px;
+}
+
+.-bottom-6 {
+  bottom: -1.5rem;
+}
+
+.left-6 {
+  left: 1.5rem;
 }
 
 .z-50 {
@@ -769,6 +781,14 @@ video {
   height: 4rem;
 }
 
+.h-\[420px\] {
+  height: 420px;
+}
+
+.h-\[430px\] {
+  height: 430px;
+}
+
 .min-h-\[280px\] {
   min-height: 280px;
 }
@@ -885,6 +905,10 @@ video {
   gap: 2rem;
 }
 
+.gap-16 {
+  gap: 4rem;
+}
+
 .space-y-3 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
@@ -923,6 +947,10 @@ video {
 
 .rounded-lg {
   border-radius: 0.5rem;
+}
+
+.rounded-xl {
+  border-radius: 0.75rem;
 }
 
 .border {
@@ -967,6 +995,10 @@ video {
 .border-lime-100 {
   --tw-border-opacity: 1;
   border-color: rgb(236 252 203 / var(--tw-border-opacity, 1));
+}
+
+.border-white\/20 {
+  border-color: rgb(255 255 255 / 0.2);
 }
 
 .bg-green-100 {
@@ -1035,6 +1067,27 @@ video {
   background-color: rgb(236 252 203 / var(--tw-bg-opacity, 1));
 }
 
+.bg-slate-950\/80 {
+  background-color: rgb(2 6 23 / 0.8);
+}
+
+.bg-white\/10 {
+  background-color: rgb(255 255 255 / 0.1);
+}
+
+.bg-lime-500\/10 {
+  background-color: rgb(132 204 22 / 0.1);
+}
+
+.bg-slate-950\/75 {
+  background-color: rgb(2 6 23 / 0.75);
+}
+
+.bg-slate-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(241 245 249 / var(--tw-bg-opacity, 1));
+}
+
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
@@ -1055,9 +1108,20 @@ video {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.from-slate-950\/90 {
+  --tw-gradient-from: rgb(2 6 23 / 0.9) var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(2 6 23 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 .via-slate-950\/55 {
   --tw-gradient-to: rgb(2 6 23 / 0)  var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), rgb(2 6 23 / 0.55) var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+
+.via-slate-950\/65 {
+  --tw-gradient-to: rgb(2 6 23 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), rgb(2 6 23 / 0.65) var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 
 .to-slate-950\/35 {
@@ -1078,6 +1142,11 @@ video {
      object-position: right;
 }
 
+.object-center {
+  -o-object-position: center;
+     object-position: center;
+}
+
 .p-10 {
   padding: 2.5rem;
 }
@@ -1088,6 +1157,10 @@ video {
 
 .p-8 {
   padding: 2rem;
+}
+
+.p-5 {
+  padding: 1.25rem;
 }
 
 .px-4 {
@@ -1148,6 +1221,19 @@ video {
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.py-24 {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+.pb-28 {
+  padding-bottom: 7rem;
+}
+
+.pt-32 {
+  padding-top: 8rem;
 }
 
 .text-center {
@@ -1231,6 +1317,10 @@ video {
 
 .tracking-\[0\.18em\] {
   letter-spacing: 0.18em;
+}
+
+.tracking-\[0\.25em\] {
+  letter-spacing: 0.25em;
 }
 
 .text-green-800 {
@@ -1347,6 +1437,11 @@ video {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
+.blur-3xl {
+  --tw-blur: blur(64px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
 .\!invert {
   --tw-invert: invert(100%) !important;
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow) !important;
@@ -1424,6 +1519,11 @@ video {
   background-color: rgb(255 255 255 / 0.1);
 }
 
+.hover\:bg-lime-400:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(163 230 53 / var(--tw-bg-opacity, 1));
+}
+
 .hover\:text-black:hover {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity, 1));
@@ -1480,6 +1580,10 @@ video {
 
   .md\:flex {
     display: flex;
+  }
+
+  .md\:h-\[520px\] {
+    height: 520px;
   }
 
   .md\:grid-cols-2 {
