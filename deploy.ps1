@@ -1,20 +1,16 @@
-﻿#!/bin/bash
-
-set -e
-
-echo "Pull latest changes..."
+﻿Write-Host "Pull latest changes..."
 git pull
 
-echo "Restore dependencies..."
+Write-Host "Restore dependencies..."
 dotnet restore
 
-echo "Build project..."
+Write-Host "Build project..."
 dotnet build --configuration Release
 
-echo "Run tests..."
+Write-Host "Run tests..."
 dotnet test --configuration Release
 
-echo "Publish project..."
-dotnet publish --configuration Release --output ./publish
+Write-Host "Publish project..."
+dotnet publish .\GreenYellowSite.csproj --configuration Release --output ./publish
 
-echo "Done. Published files are in ./publish"
+Write-Host "Done!"
