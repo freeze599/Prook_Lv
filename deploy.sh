@@ -4,6 +4,12 @@ set -e
 echo "Pull latest changes..."
 git pull
 
+echo "Install npm dependencies..."
+npm install
+
+echo "Build CSS..."
+npm run build:css:prod
+
 echo "Restore dependencies..."
 dotnet restore
 

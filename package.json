@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build:css": "tailwindcss -i ./wwwroot/css/input.css -o ./wwwroot/css/site.css --watch"
+    "build:css": "tailwindcss -i ./wwwroot/css/input.css -o ./wwwroot/css/site.css --watch",
+    "build:css:prod": "tailwindcss -i ./wwwroot/css/input.css -o ./wwwroot/css/site.css --minify"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.17"
