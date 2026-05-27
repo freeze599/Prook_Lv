@@ -20,6 +20,7 @@ echo "Run tests..."
 dotnet test --configuration Release
 
 echo "Publish project..."
+rm -rf ./publish
 dotnet publish GreenYellowSite.csproj --configuration Release --output ./publish
 
 echo "Done!"
