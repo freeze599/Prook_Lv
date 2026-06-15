@@ -30,7 +30,7 @@
                 </a>  
 
                 <!-- Navigācija -->
-                <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-700">
+                <nav class="hidden md:flex items-center gap-8 text-lg font-medium text-slate-700 hover:text-lime-500">
                     <a asp-controller="Home" asp-action="Index"
                            class="relative hover:text-black transition">
                         Sākums
@@ -50,17 +50,12 @@
                 <!-- Labā puse -->
                 <div class="flex items-center gap-4">
 
-                    <!-- Telefons -->
-                    <a href="tel:+37120292787"
-                           class="hidden md:block text-sm font-semibold text-slate-700 hover:text-black transition">
-                        +371 20292787
-                    </a>
-
-                    <!-- CTA -->
-                    <a asp-controller="Site" asp-action="Contact"
-                           class="rounded-lg bg-lime-500 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-lime-600 transition">
-                        Sazināties
-                    </a>
+                    <div class="flex items-center">
+                        <a href="tel:+37120292787"
+                               class="hidden md:block text-lg font-semibold tracking-wide text-slate-700 hover:text-lime-600 transition">
+                            +371 20292787
+                        </a>
+                    </div>
 
                 </div>
 
