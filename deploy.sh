@@ -3,16 +3,14 @@ set -euo pipefail
 
 # ==================================================
 # PROOK / GreenYellowSite Deployment Script
+# Bez sudo tiesībām
 # ==================================================
 
 APP_NAME="GreenYellowSite"
 PROJECT_FILE="./GreenYellowSite.csproj"
 
-# Server configuration
 DEPLOY_DIR="/home/prook/www"
-SERVICE_NAME="prook.service"
 
-# Local folders
 PUBLISH_DIR="./publish"
 BACKUP_ROOT="./backups"
 
@@ -30,15 +28,9 @@ rollback() {
     echo "Attempting rollback..."
 
     if [ -d "$BACKUP_DIR" ]; then
-        sudo systemctl stop "$SERVICE_NAME"
-
-        sudo rsync -a --delete "$BACKUP_DIR"/ "$DEPLOY_DIR"/
-
-        sudo chown -R prook:prook "$DEPLOY_DIR"
-
-        sudo systemctl start "$SERVICE_NAME"
-
+        rsync -a --delete "$BACKUP_DIR"/ "$DEPLOY_DIR"/
         echo "✅ Rollback completed."
+        echo "⚠ Service restart must be done separately."
     else
         echo "⚠ No backup found. Rollback skipped."
     fi
@@ -49,11 +41,11 @@ rollback() {
 trap rollback ERR
 
 echo ""
-echo "1/10 Pull latest changes..."
+echo "1/8 Pull latest changes..."
 git pull
 
 echo ""
-echo "2/10 Install npm packages..."
+echo "2/8 Install npm packages..."
 if [ -f package-lock.json ]; then
     npm ci
 else
@@ -61,21 +53,21 @@ else
 fi
 
 echo ""
-echo "3/10 Build Tailwind CSS..."
+echo "3/8 Build Tailwind CSS..."
 npm run build:css:prod
 
 echo ""
-echo "4/10 Restore NuGet packages..."
+echo "4/8 Restore NuGet packages..."
 dotnet restore "$PROJECT_FILE"
 
 echo ""
-echo "5/10 Build project..."
+echo "5/8 Build project..."
 dotnet build "$PROJECT_FILE" \
     --configuration Release \
     --no-restore
 
 echo ""
-echo "6/10 Publish project..."
+echo "6/8 Publish project..."
 rm -rf "$PUBLISH_DIR"
 
 dotnet publish "$PROJECT_FILE" \
@@ -84,13 +76,13 @@ dotnet publish "$PROJECT_FILE" \
     --no-build
 
 echo ""
-echo "7/10 Create backup..."
+echo "7/8 Create backup..."
 
 mkdir -p "$BACKUP_ROOT"
 
 if [ -d "$DEPLOY_DIR" ]; then
     mkdir -p "$BACKUP_DIR"
-    sudo rsync -a "$DEPLOY_DIR"/ "$BACKUP_DIR"/
+    rsync -a "$DEPLOY_DIR"/ "$BACKUP_DIR"/
     echo "Backup created:"
     echo "$BACKUP_DIR"
 else
@@ -98,40 +90,23 @@ else
 fi
 
 echo ""
-echo "8/10 Stop service..."
-sudo systemctl stop "$SERVICE_NAME"
+echo "8/8 Deploy new version..."
 
-echo ""
-echo "9/10 Deploy new version..."
+mkdir -p "$DEPLOY_DIR"
 
-sudo mkdir -p "$DEPLOY_DIR"
-
-sudo rsync -a --delete \
+rsync -a --delete \
     "$PUBLISH_DIR"/ \
     "$DEPLOY_DIR"/
-
-sudo chown -R prook:prook "$DEPLOY_DIR"
-
-echo ""
-echo "10/10 Start service..."
-sudo systemctl start "$SERVICE_NAME"
-
-echo ""
-echo "Checking service status..."
-
-if systemctl is-active --quiet "$SERVICE_NAME"; then
-    echo "✅ Service is running."
-else
-    echo "❌ Service failed to start."
-    rollback
-fi
 
 trap - ERR
 
 echo ""
 echo "=================================================="
-echo " Deployment completed successfully!"
+echo " Deployment files copied successfully!"
 echo "=================================================="
 
 echo ""
-sudo systemctl --no-pager --full status "$SERVICE_NAME"
+echo "⚠ IMPORTANT:"
+echo "Service restart must be done separately by deployer/admin:"
+echo "systemctl restart prook.service"
+echo ""
