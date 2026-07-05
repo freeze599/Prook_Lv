@@ -41,7 +41,9 @@ Ziņa:
 
         await client.ConnectAsync(_settings.Host, _settings.Port, SecureSocketOptions.StartTls);
         await client.AuthenticateAsync(_settings.UserName, _settings.Password);
+        Console.WriteLine(">>> Sending...");
         await client.SendAsync(message);
+        Console.WriteLine(">>> Sent!");
         await client.DisconnectAsync(true);
     }
 }
