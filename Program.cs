@@ -27,12 +27,12 @@ if (!app.Environment.IsDevelopment())
         context.Response.Headers["X-Frame-Options"] = "SAMEORIGIN";
         context.Response.Headers["X-Content-Type-Options"] = "nosniff";
         context.Response.Headers["Content-Security-Policy"] =
-            "default-src 'self'; " +
-            "img-src 'self' data:; " +
-            "style-src 'self' 'unsafe-inline'; " +
-            "script-src 'self' 'unsafe-inline'; " +
-            "font-src 'self' data:; " +
-            "connect-src 'self' ws: wss:;";
+     "default-src 'self'; " +
+     "img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; " +
+     "style-src 'self' 'unsafe-inline'; " +
+     "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; " +
+     "font-src 'self' data:; " +
+     "connect-src 'self' ws: wss: https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com;";
         await next();
     });
 }

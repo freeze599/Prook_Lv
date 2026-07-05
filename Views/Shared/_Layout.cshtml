@@ -121,13 +121,16 @@
         </a>
     </div>
     <script>
-
+        <script>
         const btn = document.getElementById("menuBtn");
         const menu = document.getElementById("mobileMenu");
 
+        if (btn && menu) {
         btn.addEventListener("click", () => {
-            menu.classList.toggle("hidden");
+        menu.classList.toggle("hidden");
         });
+        }
+    
 
     </script>
     @await RenderSectionAsync("Scripts", required: false)
