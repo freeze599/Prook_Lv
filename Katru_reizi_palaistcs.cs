@@ -6,4 +6,4 @@
 // .\deploy.ps1
 // 2. git add .
 //git commit -m "Add deploy automation"
-//git pushsss
+//git push

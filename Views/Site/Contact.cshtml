@@ -1,75 +1,11 @@
-﻿@model GreenYellowSite.Models.ContactFormModel
-
+@model GreenYellowSite.Models.ContactFormModel
 @{
-    ViewData["Title"] = "Kontakti";
-    ViewData["MetaDescription"] = "Sazinieties ar PROOK, lai saņemtu konsultāciju par drošības sistēmām, elektrības darbiem, videonovērošanu un citiem risinājumiem.";
+    ViewData["Title"] = "Sazināties";
+    ViewData["MetaDescription"] = "Piesakiet konsultāciju par PROOK laistīšanas, drošības vai automātikas risinājumiem. Tālrunis +371 20292787, e-pasts info@prook.lv.";
 }
-
-<section class="bg-slate-950 py-16 text-white">
-    <div class="mx-auto max-w-5xl px-6">
-        <h1 class="text-4xl font-bold">Kontakti</h1>
-        <p class="mt-4 text-lg text-slate-300">
-            Sazinieties ar mums, lai saņemtu konsultāciju vai piedāvājumu.
-        </p>
-    </div>
-</section>
-
-<section class="bg-white py-20">
-    <div class="mx-auto grid max-w-5xl gap-10 px-6 md:grid-cols-2">
-        <div>
-            <h2 class="text-2xl font-bold text-slate-900">Kontaktinformācija</h2>
-            <div class="mt-6 space-y-3 text-slate-600">
-                <p><strong>Tālrunis:</strong> +371 20292787</p>
-                <p><strong>E-pasts:</strong> info@prook.lv</p>
-                
-            </div>
-        </div>
-
-        <form asp-action="Contact" asp-controller="Site" method="post"
-              class="rounded-2xl border border-slate-200 bg-slate-50 p-8 shadow-sm">
-            @Html.AntiForgeryToken()
-
-            @if (TempData["SuccessMessage"] is string successMessage)
-            {
-                <div class="mb-4 rounded-lg bg-green-100 px-4 py-3 text-green-800">
-                    @successMessage
-                </div>
-            }
-
-            <div asp-validation-summary="ModelOnly" class="mb-4 text-sm text-red-600"></div>
-
-            <div>
-                <label asp-for="Vārds" class="mb-2 block text-sm font-medium text-slate-700"></label>
-                <input asp-for="Vārds" class="w-full rounded-lg border border-slate-300 px-4 py-3 outline-none focus:border-lime-500" />
-                <span asp-validation-for="Vārds" class="mt-1 block text-sm text-red-600"></span>
-            </div>  
-             
-            <div class="mt-4">
-                <label asp-for="Epasts" class="mb-2 block text-sm font-medium text-slate-700">E-pasts</label>
-                <input asp-for="Epasts" class="w-full rounded-lg border border-slate-300 px-4 py-3 outline-none focus:border-lime-500" />
-                <span asp-validation-for="Epasts" class="mt-1 block text-sm text-red-600"></span>
-            </div>
-
-            <div class="mt-4">
-                <label asp-for="Tālrunis" class="mb-2 block text-sm font-medium text-slate-700"></label>
-                <input asp-for="Tālrunis" class="w-full rounded-lg border border-slate-300 px-4 py-3 outline-none focus:border-lime-500" />
-                <span asp-validation-for="Tālrunis" class="mt-1 block text-sm text-red-600"></span>
-            </div>
-
-            <div class="mt-4">
-                <label asp-for="Ziņa" class="mb-2 block text-sm font-medium text-slate-700"></label>
-                <textarea asp-for="Ziņa" rows="5" class="w-full rounded-lg border border-slate-300 px-4 py-3 outline-none focus:border-lime-500"></textarea>
-                <span asp-validation-for="Ziņa" class="mt-1 block text-sm text-red-600"></span>
-            </div>
-
-            <button type="submit"
-                    class="mt-6 rounded-lg bg-lime-500 px-6 py-3 font-semibold text-white transition hover:bg-lime-600">
-                Nosūtīt
-            </button>
-        </form>
-    </div>
-</section>
-
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-}
+<section class="p-page-head"><div class="p-shell"><p class="p-eyebrow">PROOK / Kontakti</p><h1>Sāksim ar sarunu.</h1><p>Pastāstiet par savu ieceri — palīdzēsim izvēlēties piemērotu risinājumu.</p></div></section>
+<section class="p-contact-section"><div class="p-shell p-contact-grid">
+    <div class="p-contact-copy"><p class="p-eyebrow">Sazinieties ar mums</p><h2>Ko vēlaties<br />uzlabot savā īpašumā?</h2><p>Nav jāzina iekārtu modeļi vai tehniskie termini. Pietiek īsi aprakstīt vajadzību un norādīt objekta atrašanās vietu.</p><p class="p-contact-phone"><a href="tel:+37120292787">+371 20292787</a></p><p><a href="mailto:info@prook.lv">info@prook.lv</a></p><p><a class="p-link" href="https://wa.me/37120292787" target="_blank" rel="noopener noreferrer">Rakstīt WhatsApp ↗</a></p></div>
+    <partial name="_ContactForm" model="Model" />
+</div></section>
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

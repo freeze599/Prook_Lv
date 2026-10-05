@@ -1,4 +1,4 @@
-﻿using GreenYellowSite.Models;
+using GreenYellowSite.Models;
 using MailKit.Net.Smtp;
 using MailKit.Security;
 using Microsoft.Extensions.Options;
@@ -33,6 +33,7 @@ $@"Jauns pieteikums no mājaslapas
 Vārds: {model.Vārds}
 E-pasts: {model.Epasts}
 Tālrunis: {model.Tālrunis}
+Pakalpojums: {model.Pakalpojums ?? "Konsultācija"}
 Ziņa:
 {model.Ziņa}"
         };

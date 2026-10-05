@@ -1,0 +1,45 @@
+@model GreenYellowSite.Models.ContactFormModel
+@using GreenYellowSite.Data
+<form asp-action="Contact" asp-controller="Site" method="post" class="p-form">
+    @Html.AntiForgeryToken()
+    @if (TempData["SuccessMessage"] is string successMessage)
+    {
+        <div class="p-success" role="status">@successMessage</div>
+    }
+    <div asp-validation-summary="ModelOnly" role="alert"></div>
+    <div class="p-fields">
+        <div class="p-field p-full">
+            <label asp-for="Pakalpojums">Mani interesē</label>
+            <select asp-for="Pakalpojums">
+                <option value="">Vēlos konsultāciju</option>
+                @foreach (var service in ServiceCatalog.All)
+                {
+                    <option value="@service.Title">@service.Title</option>
+                }
+            </select>
+            <span asp-validation-for="Pakalpojums"></span>
+        </div>
+        <div class="p-field">
+            <label asp-for="Vārds">Jūsu vārds *</label>
+            <input asp-for="Vārds" autocomplete="name" required maxlength="100" />
+            <span asp-validation-for="Vārds"></span>
+        </div>
+        <div class="p-field">
+            <label asp-for="Tālrunis">Tālrunis</label>
+            <input asp-for="Tālrunis" type="tel" autocomplete="tel" maxlength="40" />
+            <span asp-validation-for="Tālrunis"></span>
+        </div>
+        <div class="p-field p-full">
+            <label asp-for="Epasts">E-pasts *</label>
+            <input asp-for="Epasts" type="email" autocomplete="email" required maxlength="254" />
+            <span asp-validation-for="Epasts"></span>
+        </div>
+        <div class="p-field p-full">
+            <label asp-for="Ziņa">Īsumā par ieceri *</label>
+            <textarea asp-for="Ziņa" rows="4" required maxlength="5000" placeholder="Kas nepieciešams un kur atrodas objekts?"></textarea>
+            <span asp-validation-for="Ziņa"></span>
+        </div>
+    </div>
+    <button class="p-button" type="submit">Pieteikt konsultāciju <span aria-hidden="true">↗</span></button>
+    <p class="p-note">Ar * atzīmētie lauki ir obligāti. Kontaktinformāciju izmantosim, lai atbildētu uz jūsu pieteikumu.</p>
+</form>

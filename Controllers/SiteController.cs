@@ -1,4 +1,4 @@
-﻿using GreenYellowSite.Data;
+using GreenYellowSite.Data;
 using GreenYellowSite.Models;
 using GreenYellowSite.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -34,9 +34,10 @@ namespace GreenYellowSite.Controllers
 
         [HttpGet]
         [Route("contact")]
-        public IActionResult Contact()
+        public IActionResult Contact(string? service)
         {
-            return View(new ContactFormModel());
+            var selectedService = string.IsNullOrWhiteSpace(service) ? null : ServiceCatalog.GetBySlug(service);
+            return View(new ContactFormModel { Pakalpojums = selectedService?.Title });
         }
 
         [HttpPost]
@@ -44,6 +45,10 @@ namespace GreenYellowSite.Controllers
         [Route("contact")]
         public async Task<IActionResult> Contact(ContactFormModel model)
         {
+            if (!string.IsNullOrWhiteSpace(model.Pakalpojums) && !ServiceCatalog.All.Any(s => s.Title == model.Pakalpojums))
+            {
+                ModelState.AddModelError(nameof(model.Pakalpojums), "Lūdzu izvēlieties pakalpojumu no saraksta.");
+            }
             if (!ModelState.IsValid)
             {
                 return View(model);

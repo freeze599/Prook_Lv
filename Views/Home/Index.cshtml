@@ -1,273 +1,29 @@
-﻿@using GreenYellowSite.Data
+@using GreenYellowSite.Data
 @{
-    ViewData["Title"] = "Sākums";
-    ViewData["MetaDescription"] = "PROOK piedāvā videonovērošanu, apsardzes sistēmas, elektrības darbus, saules paneļus un gudros risinājumus mājām un uzņēmumiem Latvijā.";
-    var services = ServiceCatalog.All;
+    ViewData["Title"] = "Laistīšana, drošība un automātika";
+    ViewData["MetaDescription"] = "PROOK — automātiskā laistīšana, videonovērošana, apsardze un gudrās mājas risinājumi. Konsultācija, uzstādīšana un atbalsts privātmājām un uzņēmumiem.";
 }
-
-<section class="relative overflow-hidden text-white">
-
-    <!-- Background -->
-    <div class="absolute inset-0">
-        <img src="/images/hero.jpg"
-             alt="Background"
-             class="h-full w-full object-cover object-center" />
-    </div>
-
-    <!-- Dark overlay -->
-    <div class="absolute inset-0 bg-slate-950/75"></div>
-
-    <!-- Saturs -->
-    <div class="relative mx-auto grid max-w-7xl gap-16 px-6 py-24 md:grid-cols-2 md:items-center">
-
-        <!-- Kreisā puse ko labot -->
-        <div>
-            <p class="text-sm font-semibold uppercase tracking-[0.25em] text-lime-400">
-                GUDRAS SISTĒMAS IKVIENAM
-            </p>
-
-            <h1 class="mt-6 text-5xl font-bold leading-tight md:text-6xl"> 
-                Drošība un automatizācija mūsdienīgai videi
-            </h1>
-
-            <p class="mt-6 max-w-xl text-lg leading-8 text-slate-300">
-                Mēs piedāvājam laistīšanas, videonovērošanas, apsardzes un automatizācijas sistēmu uzstādīšanu privātmājām un uzņēmumiem.
-            </p>
-        </div>
-
-        <!-- Labā puse ko labot -->
-        <div class="relative hidden md:block">
-            <div class="absolute -inset-4 rounded-[2rem] bg-lime-500/10 blur-3xl"></div>
-
-            <div class="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-2xl backdrop-blur">
-                <img src="/images/fons1.jpg"
-                     alt="Laistīšanas sistēma"  
-                     class="h-[420px] w-full object-cover" /> 
-            </div>   
-        </div>
-
-    </div>  
+<section class="p-shell p-hero">
+    <div><p class="p-eyebrow">PROOK / Gudras sistēmas īpašumam</p><h1>Sakopts pagalms.<br />Drošāka māja.<br /><em>Mazāk rūpju.</em></h1><p class="p-lead">Laistīšanas, drošības un automātikas risinājumi privātmājām un uzņēmumiem. No konsultācijas līdz uzstādīšanai.</p><div class="p-actions"><a class="p-button" href="#pieteikties">Pārrunāsim jūsu ieceri <span aria-hidden="true">↗</span></a><a class="p-link" href="#risinajumi">Apskatīt risinājumus</a></div></div>
+    <figure class="p-photo"><img src="~/images/prook-garden-960.webp" srcset="@Url.Content("~/images/prook-garden-640.webp") 640w, @Url.Content("~/images/prook-garden-960.webp") 960w, @Url.Content("~/images/prook-garden-1440.webp") 1440w" sizes="(max-width: 620px) calc(100vw - 36px), (max-width: 850px) 46vw, 564px" width="1440" height="960" alt="Automātiskā laistīšana zālienā" fetchpriority="high" /><figcaption><strong>Zaļš pagalms. Gudra laistīšana.</strong><span>Viens no PROOK risinājumiem jūsu īpašumam.</span></figcaption></figure>
 </section>
-<section class="bg-slate-50 py-24">
-    <div class="mx-auto max-w-7xl px-6">
-        <div class="mb-12">
-            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-lime-600">Pakalpojumi</p>
-            <h2 class="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">
-                Mūsu piedāvātie risinājumi
-            </h2>
-        </div>
-
-        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            @foreach (var service in services)
-            {
-                <a asp-controller="Site"
-                       asp-action="ServiceDetail"
-                       asp-route-slug="@service.Slug"
-                       class="group flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:border-lime-300 hover:shadow-2xl">
-
-                    <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-lime-50 text-3xl shadow-sm transition group-hover:scale-110">
-                        @service.Icon
-                    </div>
-
-                    <h3 class="mt-6 text-xl font-bold text-slate-900 transition group-hover:text-lime-600">
-                        @service.Title
-                    </h3>
-
-                    <p class="mt-4 flex-grow leading-7 text-slate-600">
-                        @service.ShortDescription
-                    </p>
-
-                    <div class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-lime-600">
-                        <span>Uzzināt vairāk</span>
-                        <span class="transition group-hover:translate-x-1">→</span>
-                    </div>
-                </a>
-            }
-        </div>
-    </div>
-</section>
-
-<section class="border-t border-lime-100 bg-lime-50/30 pt-16 pb-20">
-    <div class="mx-auto max-w-7xl px-6">
-        <div class="mx-auto mb-12 max-w-4xl text-center">
-            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-lime-600">
-                Kāpēc izvēlēties PROOK
-            </p>
-
-            <h2 class="mt-4 text-3xl font-bold leading-tight text-slate-950 md:text-4xl">
-                Uzticami risinājumi no idejas līdz uzstādīšanai
-            </h2>
-
-            <p class="mx-auto mt-4 max-w-2xl text-lg leading-8 text-slate-600">
-                Nodrošinām pārdomātus tehniskos risinājumus, sākot no konsultācijas līdz kvalitatīvai uzstādīšanai un atbalstam.
-            </p>
-        </div>
-
-        <div class="grid gap-6 md:grid-cols-2">
-            <div class="flex items-start gap-5 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
-                <div class="mt-1 flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-lime-100 text-xl">
-                    🛡️
-                </div>
-                <div>
-                    <p class="text-sm font-semibold uppercase tracking-[0.18em] text-lime-600">Pieredze</p>
-                    <h3 class="mt-2 text-2xl font-bold text-slate-950">Drošības risinājumi</h3>
-                    <p class="mt-3 leading-7 text-slate-600">
-                        Modernas drošības sistēmas jūsu īpašumam un biznesam.
-                    </p>
-                </div>
-            </div>
-
-            <div class="flex items-start gap-5 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
-                <div class="mt-1 flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-lime-100 text-xl">
-                    ⚙️
-                </div>
-                <div>
-                    <p class="text-sm font-semibold uppercase tracking-[0.18em] text-lime-600">Pieeja</p>
-                    <h3 class="mt-2 text-2xl font-bold text-slate-950">Ilgtermiņa risinājumi</h3>
-                    <p class="mt-3 leading-7 text-slate-600">
-                        Uzticami un ilgtspējīgi risinājumi jūsu videi.
-                    </p>
-                </div>
-            </div>
-
-            <div class="flex items-start gap-5 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
-                <div class="mt-1 flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-lime-100 text-xl">
-                    💡
-                </div>
-                <div>
-                    <p class="text-sm font-semibold uppercase tracking-[0.18em] text-lime-600">Darbs</p>
-                    <h3 class="mt-2 text-2xl font-bold text-slate-950">Kvalitāte un inovācija</h3>
-                    <p class="mt-3 leading-7 text-slate-600">
-                        Izmantojam mūsdienīgas tehnoloģijas kvalitatīvam rezultātam.
-                    </p>
-                </div>
-            </div>
-
-            <div class="flex items-start gap-5 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
-                <div class="mt-1 flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-lime-100 text-xl">
-                    🤝
-                </div>  
-                <div>
-                    <p class="text-sm font-semibold uppercase tracking-[0.18em] text-lime-600">Atbalsts</p>
-                    <h3 class="mt-2 text-2xl font-bold text-slate-950">Tehniskais atbalsts</h3>
-                    <p class="mt-3 leading-7 text-slate-600">
-                        Operatīvs un profesionāls atbalsts arī pēc uzstādīšanas.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<section class="bg-slate-950 py-24 text-white">
-    <div class="mx-auto max-w-7xl px-6">
-        <div class="max-w-3xl">
-            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-lime-400">
-                Par uzņēmumu
-            </p>
-
-            <h2 class="mt-4 text-3xl font-bold text-white md:text-4xl">
-                Uzticami tehnoloģiju risinājumi jūsu videi
-            </h2>
-
-            <p class="mt-6 text-lg leading-8 text-slate-300">
-                Mūsu mērķis ir palīdzēt klientiem ieviest modernus drošības un automatizācijas risinājumus, kuri uzlabo ikdienas komfortu un drošību.
-            </p>
-
-            <p class="mt-4 text-lg leading-8 text-slate-300">
-                Mēs strādājam ar individuālu pieeju katram klientam, izvērtējot konkrētā objekta vajadzības un piedāvājot optimālo tehnisko risinājumu.
-            </p>
-        </div>
-    </div>
-</section>
-
-@* <section class="bg-white py-20">
-    <div class="mx-auto max-w-7xl px-6">
-        <div class="max-w-2xl">
-            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-lime-600">Video un projekti</p>
-            <h2 class="mt-4 text-3xl font-bold text-slate-900 md:text-4xl">
-                Mūsu realizētie projekti
-            </h2>
-            <p class="mt-4 text-lg leading-8 text-slate-600">
-                Šeit varat iepazīties ar dažiem no mūsu realizētajiem projektiem.
-            </p>
-        </div>
-
-        <div class="mt-12 grid gap-6 md:grid-cols-2">
-            <div class="flex min-h-[280px] items-center justify-center rounded-3xl bg-slate-200 text-center text-slate-500">
-                Video vieta
-            </div>
-
-            <div class="rounded-3xl border border-slate-200 bg-slate-50 p-8">
-                <h3 class="text-2xl font-bold text-slate-900">Par projektu demonstrācijām</h3>
-                <p class="mt-4 leading-8 text-slate-600">
-                    Šeit drīz būs apskatāmi video.
-                </p>
-                <p class="mt-4 leading-8 text-slate-600">
-                    Šeit drīz būs redzami un aprakstīti realizētie projekti.
-                </p>
-            </div>
-        </div>
-    </div>
-</section> *@
-
-@* <section class="bg-slate-50 py-20">
-    <div class="mx-auto max-w-7xl px-6">
-        <div class="max-w-2xl">
-            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-lime-600">Galerija</p>
-            <h2 class="mt-4 text-3xl font-bold text-slate-900 md:text-4xl">
-                Pirms un pēc
-            </h2>
-            <p class="mt-4 text-lg leading-8 text-slate-600">
-                Šeit ir apskatāmi darbi pirms un pēc realizēšanas.
-            </p>
-        </div>
-
-        <div class="mt-12 grid gap-6 md:grid-cols-2">
-            <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-                <div class="flex h-72 items-center justify-center rounded-2xl bg-slate-200 text-slate-500">
-                    Pirms
-                </div>
-                <h3 class="mt-6 text-xl font-bold text-slate-900">Objekts pirms uzlabošanas</h3>
-                <p class="mt-3 leading-7 text-slate-600">
-                    
-                </p>
-            </div>
-
-            <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-                <div class="flex h-72 items-center justify-center rounded-2xl bg-slate-200 text-slate-500">
-                    Pēc
-                </div>
-                <h3 class="mt-6 text-xl font-bold text-slate-900">Rezultāts pēc uzstādīšanas</h3>
-                <p class="mt-3 leading-7 text-slate-600">
-                   
-                </p>
-            </div>
-        </div>
-    </div>
-</section> *@
-
-<section class="bg-white py-20">
-    <div class="mx-auto max-w-7xl px-6">
-        <div class="rounded-[2rem] bg-lime-500 px-8 py-14 text-white md:px-14">
-            <div class="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
-                <div class="max-w-2xl">
-                    <h2 class="text-3xl font-bold md:text-4xl">
-                        Vajadzīgs risinājums jūsu objektam?
-                    </h2>
-                    <p class="mt-4 text-lg text-lime-50">
-                        Sazinieties ar mums, un palīdzēsim izvēlēties piemērotāko variantu.
-                    </p>
-                </div>
-
-                <div>
-                    <a asp-controller="Site" asp-action="Contact"
-                           class="inline-block rounded-lg bg-white px-6 py-3 font-semibold text-lime-700 transition hover:bg-slate-100">
-                        Pieteikties konsultācijai
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<div class="p-band"><div class="p-shell p-band-inner"><span>@await Html.PartialAsync("_ProokIcon", "message") Konsultācija un risinājuma izvēle</span><span>@await Html.PartialAsync("_ProokIcon", "tools") Sistēmu uzstādīšana</span><span>@await Html.PartialAsync("_ProokIcon", "check") Atbalsts pēc uzstādīšanas</span></div></div>
+<section id="risinajumi" class="p-shell p-section"><div class="p-heading"><h2>Kas nepieciešams<br />jūsu īpašumam?</h2><p>Izvēlieties virzienu.<br />Par tehniskajām detaļām parunāsim kopā.</p></div><div class="p-grid">
+    @foreach (var group in ServiceGroups.All)
+    {
+        <article class="p-card">
+            @await Html.PartialAsync("_ProokIcon", group.Icon)
+            <h3>@group.Title</h3><p>@group.Description</p>
+            <ul>
+                @foreach (var service in ServiceCatalog.All.Where(s => ServiceGroups.Key(s.Slug) == group.Key))
+                {
+                    <li><a asp-controller="Site" asp-action="ServiceDetail" asp-route-slug="@service.Slug">@service.Title <span aria-hidden="true">↗</span></a></li>
+                }
+            </ul>
+            <a class="p-link" asp-controller="Site" asp-action="Services" asp-fragment="@group.Key">Vairāk par risinājumiem <span aria-hidden="true">→</span></a>
+        </article>
+    }
+</div></section>
+<div class="p-process"><div class="p-shell p-process-inner"><b>No ieceres līdz risinājumam</b><span><span>01 /</span>Pārrunājam vajadzības</span><span><span>02 /</span>Vienojamies par piedāvājumu</span><span><span>03 /</span>Uzstādām sistēmu</span></div></div>
+<section class="p-contact-section" id="pieteikties"><div class="p-shell p-contact-grid"><div class="p-contact-copy"><p class="p-eyebrow">Sāksim ar sarunu</p><h2>Pastāstiet,<br />ko vēlaties uzlabot.</h2><p>Nav jāzina iekārtu modeļi vai tehniskie termini. Aprakstiet savu ieceri — palīdzēsim saprast nākamo soli.</p><p class="p-contact-phone"><a href="tel:+37120292787">+371 20292787</a></p><p><a href="mailto:info@prook.lv">info@prook.lv</a></p><p><a class="p-link" href="https://wa.me/37120292787" target="_blank" rel="noopener noreferrer">Ērtāk WhatsApp? Rakstiet mums ↗</a></p></div><partial name="_ContactForm" model="new GreenYellowSite.Models.ContactFormModel()" /></div></section>
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

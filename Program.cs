@@ -47,6 +47,19 @@ else
     });
 }
 
+// This works only after the host has bound www.prook.lv and installed its TLS certificate.
+app.Use(async (context, next) =>
+{
+    if (string.Equals(context.Request.Host.Host, "www.prook.lv", StringComparison.OrdinalIgnoreCase))
+    {
+        var target = "https://prook.lv" + context.Request.PathBase.ToUriComponent()
+            + context.Request.Path.ToUriComponent() + context.Request.QueryString.ToUriComponent();
+        context.Response.Redirect(target, permanent: true, preserveMethod: true);
+        return;
+    }
+    await next();
+});
+
 app.UseHttpsRedirection();
 app.UseRouting();
 

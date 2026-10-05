@@ -1,56 +1,20 @@
-﻿@model IEnumerable<GreenYellowSite.Models.Service>
-
-    @{
-    ViewData["Title"] = "Pakalpojumi";
-    ViewData["MetaDescription"] = "Apskatiet PROOK pakalpojumus – videonovērošana, apsardzes sistēmas, piekļuves kontrole, elektrības darbi, saules paneļi un citi risinājumi.";
-    }
-
-<section class="bg-slate-950 py-16 text-white">
-    <div class="mx-auto max-w-7xl px-6">
-        <h1 class="text-4xl font-bold">Pakalpojumi</h1>
-        <p class="mt-4 max-w-3xl text-lg text-slate-300">
-            Piedāvājam dažādus drošības, automatizācijas un infarastruktūras risinājumus mājām un uzņēmumiem.
-        </p>
-    </div>
-</section>
-
-<section class="bg-white py-20">
-    <div class="mx-auto max-w-7xl px-6">
-
-        <h2 class="text-3xl font-bold text-slate-900">
-            Mūsu piedāvātie pakalpojumi
-        </h2>
-
-        <p class="mt-4 max-w-2xl text-lg text-slate-600">
-            Izvēlieties piemērotāko risinājumu savam īpašumam vai uzņēmumam.
-        </p>
-
-        <div class="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3"/>
-        @foreach (var service in Model)
+@model IEnumerable<GreenYellowSite.Models.Service>
+@using GreenYellowSite.Data
+@{
+    ViewData["Title"] = "Risinājumi jūsu īpašumam";
+    ViewData["MetaDescription"] = "PROOK risinājumi pagalmam, drošībai un ikdienas ērtībai — laistīšana, videonovērošana, apsardze, vārtu automātika un datu tīkli.";
+}
+<section class="p-page-head"><div class="p-shell"><p class="p-eyebrow">PROOK / Risinājumi</p><h1>Gudri risinājumi.<br />Jūsu ikdienai.</h1><p>No automātiskas laistīšanas līdz drošības sistēmām. Izvēlieties pakalpojumu un uzziniet vairāk.</p></div></section>
+<section class="p-shell p-section">
+@foreach (var group in ServiceGroups.All)
+{
+    var services = Model.Where(s => ServiceGroups.Key(s.Slug) == group.Key).ToList();
+    if (services.Count == 0) { continue; }
+    <section class="p-service-group" id="@group.Key"><div class="p-heading"><h2>@group.Title</h2><p>@group.Description</p></div><div class="p-grid p-service-grid">
+        @foreach (var service in services)
         {
-            <a asp-controller="Site"
-               asp-action="ServiceDetail"
-               asp-route-slug="@service.Slug"
-               class="group flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:border-lime-300 hover:shadow-2xl">
-
-                <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-lime-50 text-3xl shadow-sm transition group-hover:scale-110">
-                    @service.Icon
-                </div>
-
-                <h2 class="mt-6 text-xl font-bold text-slate-900 transition group-hover:text-lime-600">
-                    @service.Title
-                </h2>
-
-                <p class="mt-4 flex-grow leading-7 text-slate-600">
-                    @service.ShortDescription
-                </p>
-
-                <div class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-lime-600">
-                    <span>Uzzināt vairāk</span>
-                    <span class="transition group-hover:translate-x-1">→</span>
-                </div>
-            </a>
+            <article class="p-card">@await Html.PartialAsync("_ProokIcon", group.Icon)<h3>@service.Title</h3><p>@service.ShortDescription</p><a class="p-link" asp-controller="Site" asp-action="ServiceDetail" asp-route-slug="@service.Slug">Uzzināt vairāk <span aria-hidden="true">↗</span></a></article>
         }
-    </div>
-   
+    </div></section>
+}
 </section>
